@@ -17,8 +17,8 @@ eureka:
     service-url:
       #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
       #设置与eureka Server交互地址查询服务和注册服务
-      defaultZone: http://eureka7001.com:7001/eureka/
----
+      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+
 server:
   port: 8001
 mybatis:
