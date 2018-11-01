@@ -37,13 +37,7 @@ spring:
     username: root
     password: root
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/ #注册地址
-  instance:
-    instance-id: provider-server8001 #设置eureka访问地址名字
-    prefer-ip-address: true  #访问路径可以显示IP地址（左下角地址显示自己的Ip地址）
+
 info:
   app.name: hand-springboot
   company.name: www.baidu.com
