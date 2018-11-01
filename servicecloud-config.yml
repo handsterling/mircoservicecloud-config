@@ -5,35 +5,32 @@
 server:
   port: 7001
 spring:
-  profiles:  eureka   #开发环境
+  profiles:  eureka   
   application:
       name: microservicecloud-config-eureka
 eureka:
   instance:
-    hostname: eureka7001.com   #eureka服务端实例名称
+    hostname: eureka7001.com   
   client:
-    register-with-eureka: false   #false表示不向注册中心注册自己
-    fetch-registry: false     #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要检索服务
+    register-with-eureka: false   
+    fetch-registry: false    
     service-url:
-      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-      #设置与eureka Server交互地址查询服务和注册服务
-      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+      defaultZone: http://eureka7001.com:7001/eureka/
 
 server:
   port: 8001
 mybatis:
   config-location: classpath:mybatis/mybatisCfg.xml
   type-aliases-package: com.test.demo.dto
-  mapper-locations: classpath:mybatis/mapper/**/*.xml      # mybatis配置文件所在路径   # 所有Entity别名类所在包                # mapper映射文件
-
+  mapper-locations: classpath:mybatis/mapper/**/*.xml              
 spring:
-   profiles:  provider   #开发环境
+   profiles:  provider   
    application:
     name: microservicecloud-dept
    datasource:
-    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
-    driver-class-name: com.mysql.cj.jdbc.Driver              # mysql驱动包
-    url: jdbc:mysql://localhost:3306/clouddb01?useUnicode=true&characterEncoding=utf8 # 数据库名称
+    type: com.alibaba.druid.pool.DruidDataSource           
+    driver-class-name: com.mysql.cj.jdbc.Driver             
+    url: jdbc:mysql://localhost:3306/clouddb01?useUnicode=true&characterEncoding=utf8 
     username: root
     password: root
 
