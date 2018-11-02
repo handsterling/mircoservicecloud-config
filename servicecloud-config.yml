@@ -26,6 +26,7 @@ mybatis:
   mapper-locations: classpath:mybatis/mapper/**/*.xml      # mybatis配置文件所在路径   # 所有Entity别名类所在包                # mapper映射文件
 
 spring:
+   profiles: provider
    application:
     name: microservicecloud-dept-config
    datasource:
