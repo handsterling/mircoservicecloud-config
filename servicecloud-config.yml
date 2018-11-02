@@ -17,24 +17,32 @@ eureka:
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka/
 ---
+
 server:
   port: 8001
 mybatis:
   config-location: classpath:mybatis/mybatisCfg.xml
   type-aliases-package: com.test.demo.dto
-  mapper-locations: classpath:mybatis/mapper/**/*.xml              
+  mapper-locations: classpath:mybatis/mapper/**/*.xml      # mybatis配置文件所在路径   # 所有Entity别名类所在包                # mapper映射文件
+
 spring:
-   profiles:  provider   
+   profiles:  provider
    application:
-    name: microservicecloud-dept
+    name: microservicecloud-dept-config
    datasource:
-    type: com.alibaba.druid.pool.DruidDataSource           
-    driver-class-name: com.mysql.cj.jdbc.Driver             
-    url: jdbc:mysql://localhost:3306/clouddb01?useUnicode=true&characterEncoding=utf8 
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: com.mysql.cj.jdbc.Driver              # mysql驱动包
+    url: jdbc:mysql://localhost:3306/clouddb01?useUnicode=true&characterEncoding=utf8 # 数据库名称
     username: root
     password: root
 
-
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/ #注册地址
+  instance:
+    instance-id: provider-server-client8001 #设置eureka访问地址名字
+    prefer-ip-address: true  #访问路径可以显示IP地址（左下角地址显示自己的Ip地址）
 info:
   app.name: hand-springboot
   company.name: www.baidu.com
